@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+  <div class="container-fluid">
+    <a class="navbar-brand m-4" routerLink="." style="color:#C9A9A6;" (click)="setHome()">Interface Team</a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars">click</i>
+
+    </button>
+
+    <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <div>
+        <ul class="nav navbar-collapse nav p-1">
+          <li class="nav-item ">
+            <a class="nav-link active" aria-current="page" (click)="callLogin()">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" (click)="callUserRegister()">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+

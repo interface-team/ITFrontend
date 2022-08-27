@@ -1,0 +1,32 @@
+<div class="center">
+  <input type="checkbox" id="show" checked />
+  <div class="container">
+    <label for="show" class="close-btn fas fa-times" title="close" (click)="closePopup()">&times;</label>
+    <div class="text">Register User</div>
+    <form action="#">
+      <div class="data">
+        <input type="text" required placeholder="First Name" />
+      </div>
+      <div class="data">
+        <input type="text" required placeholder="Last Name" />
+      </div>
+      <div class="data">
+        <input type="email" required placeholder="Email: abc@example.com"/>
+      </div>
+      <div class="data">
+        <input type="password" required placeholder="New Password"/>
+      </div>
+      <div class="data">
+        <input type="password" required placeholder="Confirm Password" />
+      </div>
+      <div class="data">
+        <input type="text" required placeholder="Mobile Number"/>
+      </div>
+      <div class="btn">
+        <div class="inner"></div>
+        <button type="submit">Register</button>
+      </div>
+      <div class="signup-link">Already a member? <a href="#">Login now</a></div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+.back-image {
+  background-image: url('../../../assets/Images/backgroundHome.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}

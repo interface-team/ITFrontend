@@ -1,14 +1,37 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './Components/home/home.component';
+import { AdminHomeComponent } from './Components/Admin/admin-home/admin-home.component';
+import { UserHomeComponent } from './Components/User/user-home/user-home.component';
+import { UserNavBarComponent } from './Components/User/user-nav-bar/user-nav-bar.component';
+import { AdminNavBarComponent } from './Components/Admin/admin-nav-bar/admin-nav-bar.component';
+import { HomeNavBarComponent } from './Components/home/home-nav-bar/home-nav-bar.component';
+import { LoginComponent } from './Components/home/login/login.component';
+import { UserRegisterComponent } from './Components/user/user-register/user-register.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    AdminHomeComponent,
+    UserHomeComponent,
+    UserNavBarComponent,
+    AdminNavBarComponent,
+    HomeNavBarComponent,
+    LoginComponent,
+    UserRegisterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes, { useHash: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
