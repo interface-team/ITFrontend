@@ -3,24 +3,52 @@
   <div class="container">
     <label for="show" class="close-btn fas fa-times" title="close" (click)="closePopup()">&times;</label>
     <div class="text">Register User</div>
-    <form action="#">
+    <form [formGroup]="registerForm" (click)="onSubmit()">
       <div class="data">
-        <input type="text" required placeholder="First Name" />
+        <input type="text" placeholder="First Name" formControlName="firstName" />
+        <span *ngIf="!userFirstName.valid && userFirstName.touched" class="error-block">
+          Please Provide First Name
+        </span>
+      </div>
+
+      <div class="data">
+        <input type="text" placeholder="Last Name" formControlName="lastName" />
       </div>
       <div class="data">
-        <input type="text" required placeholder="Last Name" />
+        <input type="email" placeholder="Email: abc@example.com" formControlName="email" />
+        <span *ngIf="!userEmail.valid && userEmail.touched" class="error-block">
+          <span *ngIf="userEmail.hasError('required')">: Please Provide Email</span>
+          <span *ngIf="userEmail.hasError('email')">: Please Provide Valid Email</span>
+        </span>
       </div>
       <div class="data">
-        <input type="email" required placeholder="Email: abc@example.com"/>
+        <input type="password" placeholder="New Password" formControlName="password" />
+        <span *ngIf="!userPassword.valid && userPassword.touched" class="error-block">
+          <span *ngIf="userPassword.hasError('required')">: Please Provide Password</span>
+          <span *ngIf="userPassword.hasError('minlength')">: Password must be 8 character</span>
+        </span>
       </div>
       <div class="data">
-        <input type="password" required placeholder="New Password"/>
+        <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
+        <span *ngIf="userConfirmPassword.touched" class="error-block">
+          <span *ngIf="!userConfirmPassword.valid && userConfirmPassword.hasError('required') " class="error-block">
+            Please Provide Confirm Password
+          </span>
+          <span *ngIf="registerForm.hasError('passwordmatched')" class="error-block">
+            Password and Confirm Password Must Be Same
+          </span>
+        </span>
       </div>
       <div class="data">
-        <input type="password" required placeholder="Confirm Password" />
-      </div>
-      <div class="data">
-        <input type="text" required placeholder="Mobile Number"/>
+        <input type="tel" placeholder="Mobile Number" formControlName="mobile" />
+        <span *ngIf="!userMobile.valid && userMobile.touched" class="error-block">
+          <span *ngIf="!userMobile.valid && userMobile.hasError('required')" >
+            Please Provide Mobile Number
+          </span>
+          <span *ngIf="registerForm.hasError('mobilematched')" class="error-block">
+            Mobile Number Must Be 10 Digit (0-9 only)
+          </span>
+        </span>
       </div>
       <div class="btn">
         <div class="inner"></div>

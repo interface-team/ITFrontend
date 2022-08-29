@@ -1,6 +1,17 @@
+.ng-invalid.ng-touched{
+  border-color: red;
+}
+
+.error-block{
+  color: red;
+  size: 2px;
+}
 
 /*
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap'); */
+move above code to global level
+create css filr in assets folder
+import in style.css file present in global
+*/
 *{
   margin: 0;
   padding: 0;

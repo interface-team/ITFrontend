@@ -7,23 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  displayLogin:boolean=true;
-  displayUserRegister=true;
+  hiddenLoginForm:boolean=true;
+  hiddenUserRegisterForm=true;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   loginComp(data:any){
-    this.displayLogin=data;
+    this.hiddenLoginForm=data;
   }
 
   registerComponent(data:any){
-    this.displayUserRegister=data;
+    this.hiddenUserRegisterForm=data;
   }
 
-  closeEvent(data:any){
-    this.displayLogin=true;
-    this.displayUserRegister=true;
+  closeEvents(data:any){
+    this.hiddenLoginForm=true;
+    this.hiddenUserRegisterForm=true;
   }
 }

@@ -1,6 +1,6 @@
 <div class="back-image">
   <app-home-nav-bar (loginComp)="loginComp($event)" (userRegisterComp)="registerComponent($event)"></app-home-nav-bar>
-  <app-login [hidden]="displayLogin" (closeEvent)="closeEvent($event)"></app-login>
-  <app-user-register [hidden]="displayUserRegister"></app-user-register>
+  <app-login [hidden]="hiddenLoginForm" (close)="closeEvents($event)"></app-login>
+  <app-user-register [hidden]="hiddenUserRegisterForm" (closeRegister)="closeEvents($event)"></app-user-register>
 </div>
 

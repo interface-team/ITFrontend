@@ -10,11 +10,15 @@ import { UserNavBarComponent } from './Components/User/user-nav-bar/user-nav-bar
 import { AdminNavBarComponent } from './Components/Admin/admin-nav-bar/admin-nav-bar.component';
 import { HomeNavBarComponent } from './Components/home/home-nav-bar/home-nav-bar.component';
 import { LoginComponent } from './Components/home/login/login.component';
-import { UserRegisterComponent } from './Components/user/user-register/user-register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserRegisterComponent } from './Components/User/user-register/user-register.component';
+import { UserPasswordRecoveryComponent } from './Components/User/user-password-recovery/user-password-recovery.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'userPasswordRecovery', component: UserPasswordRecoveryComponent },
+  { path: 'user-register', component: UserRegisterComponent },
 ];
 
 @NgModule({
@@ -27,11 +31,13 @@ const appRoutes: Routes = [
     AdminNavBarComponent,
     HomeNavBarComponent,
     LoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserPasswordRecoveryComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, { useHash: true })
+    RouterModule.forRoot(appRoutes, { useHash: true }),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
