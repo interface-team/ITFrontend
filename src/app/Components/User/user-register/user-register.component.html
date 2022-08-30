@@ -2,8 +2,16 @@
   <input type="checkbox" id="show" checked />
   <div class="container">
     <label for="show" class="close-btn fas fa-times" title="close" (click)="closePopup()">&times;</label>
-    <div class="text">Register User</div>
-    <form [formGroup]="registerForm" (click)="onSubmit()">
+    <div class="text">
+      <div>Register User</div>
+      <div class="text-span-size">
+        <span class="error-block">
+          {{RegisterStatus}}
+        </span>
+      </div>
+    </div>
+
+    <form [formGroup]="registerForm" (submit)="onSubmit()">
       <div class="data">
         <input type="text" placeholder="First Name" formControlName="firstName" />
         <span *ngIf="!userFirstName.valid && userFirstName.touched" class="error-block">
@@ -42,12 +50,12 @@
       <div class="data">
         <input type="tel" placeholder="Mobile Number" formControlName="mobile" />
         <span *ngIf="!userMobile.valid && userMobile.touched" class="error-block">
-          <span *ngIf="!userMobile.valid && userMobile.hasError('required')" >
+          <span *ngIf="!userMobile.valid && userMobile.hasError('required')">
             Please Provide Mobile Number
           </span>
-          <span *ngIf="registerForm.hasError('mobilematched')" class="error-block">
-            Mobile Number Must Be 10 Digit (0-9 only)
-          </span>
+        </span>
+        <span *ngIf="!userMobile.hasError('required') && registerForm.hasError('mobilematched')" class="error-block">
+          Mobile Number Must Be 10 Digit (0-9 only)
         </span>
       </div>
       <div class="btn">
