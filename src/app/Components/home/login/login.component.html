@@ -5,6 +5,9 @@
      <div class="text">
         Login Form
      </div>
+     <div class="error-block invalid-text">
+      <span>{{ invalidPassword }}</span>
+     </div>
      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="data">
            <label>Email</label>

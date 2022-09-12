@@ -148,3 +148,7 @@ form .signup-link a:hover{
   position: fixed;
   margin-left: 30%;
 }
+
+.invalid-text{
+  text-align: center;
+}

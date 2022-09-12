@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   @Output() close: EventEmitter<any> = new EventEmitter();// for sending data to parent component
   loginForm: FormGroup;
   detail : UserLoginDetail = new UserLoginDetail();
-
+  invalidPassword : string='';
 
   constructor(private route:Router, private homeService:HomeService) { }
 
@@ -41,12 +41,15 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     console.log(this.loginForm.controls["password"]);
+
     if (this.loginForm.valid) {
       this.detail.Email = this.userEmail.value;
       this.detail.Password = this.userPassword.value;
       this.homeService.login(this.detail).subscribe(data => {
-        console.log(data);
-        if(data.UserType=='U')
+        console.log("this-> "+data.UserType);
+        if(data.UID==-1)
+          this.invalidPassword="Invalid Email or Password"
+        else if(data.UserType=='U')
           this.route.navigate(['/userHome']);
         else if(data.UserType=='A')
           this.route.navigate(['/adminHome']);
